@@ -15,8 +15,8 @@ This plugin uses [BepInEx](https://github.com/BepInEx/BepInEx) as a mod loader s
 
 ### Installing This Plugin
 
-1. Download the plugin from the release page
-2. Put the SMBBMLeaderboardDisabler.dll file in your "BepInEx/plugins" folder
+1. Download the SMBBMAssetBundleLoader.zip file from the Releases page
+2. Extract it in your main game folder (the zip file structure should put the plugin in the right place)
 
 ## Integration with other mods
 
