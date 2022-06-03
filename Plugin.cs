@@ -1,7 +1,6 @@
 ﻿using BepInEx;
 using BepInEx.IL2CPP;
 using BepInEx.Logging;
-using Il2CppSystem;
 using System.Runtime.InteropServices;
 using UnhollowerRuntimeLib;
 
