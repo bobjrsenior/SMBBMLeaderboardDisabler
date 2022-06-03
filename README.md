@@ -4,7 +4,7 @@ A BepInEx plugin for Super Monkey Ball Banana Mania that disables leaderboard up
 
 Note: Based on what MorsGames did for [BananaModManager](https://github.com/MorsGames/BananaModManager)
 
-## Intallation
+## Installation
 
 ### Installing BepInEx
 
@@ -16,13 +16,13 @@ This plugin uses [BepInEx](https://github.com/BepInEx/BepInEx) as a mod loader s
 ### Installing This Plugin
 
 1. Download the plugin from the release page
-2. Put the .dll file in your "BepInEx/plugins" folder
+2. Put the SMBBMLeaderboardDisabler.dll file in your "BepInEx/plugins" folder
 
 ## Integration with other mods
 
 If your making a mod that breaks gameplay in some way, it needs to disable the leaderboard upload. To do that, you can depend on this mod.
 
-1. Add a project reference to the .dll file from the releases to your project
+1. Add a project reference to the SMBBMLeaderboardDisabler.dll file from the releases to your project
 2. At the top of your main BepInEx plugin class, add the annotation below
 
 ```csharp
