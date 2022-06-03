@@ -1,7 +1,6 @@
 ﻿using BepInEx;
 using BepInEx.IL2CPP;
 using BepInEx.Logging;
-using HarmonyLib;
 using Il2CppSystem;
 using System.Runtime.InteropServices;
 using UnhollowerRuntimeLib;
@@ -14,10 +13,14 @@ namespace SMBBMLeaderboardDisabler
         [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
         public static extern System.IntPtr GetModuleHandle(string lpModuleName);
 
+        /// <summary>
+        /// For logging convienence
+        /// </summary>
+        internal static new ManualLogSource Log;
+
+
         public delegate void LeaderboardsDelegate();
         public static LeaderboardsDelegate DelegateInstance;
-
-        internal static new ManualLogSource Log;
 
         public static bool LeaderboardDisabled = false;
 
@@ -26,12 +29,30 @@ namespace SMBBMLeaderboardDisabler
             Log.LogInfo("Leaderboards are disabled when mods are used.");
         }
 
-        public static void DiableLeaderboards()
+        /// <summary>
+        /// Disables the leaderboards
+        /// Note: Based on MorsGames work in https://github.com/MorsGames/BananaModManager/blob/main/BananaModManager.Loader.IL2Cpp/Loader.cs
+        /// </summary>
+        /// <param name="disabler">Name to print in the logs for debugging purposes</param>
+        public static void DisableLeaderboards(string disabler)
         {
-            DelegateInstance = Dummy;
-            ClassInjector.Detour.Detour(IntPtr.Add(GetModuleHandle("GameAssembly.dll"), 0xa9d990),
-                                DelegateInstance);
-            LeaderboardDisabled = true;
+            Log.LogDebug($"Leaderboard requested to be disabled by {disabler}!");
+            DisableLeaderboards();
+        }
+
+        /// <summary>
+        /// Disabled the leaderboards (can't be undone except by game restart)
+        /// </summary>
+        public static void DisableLeaderboards()
+        {
+            if (!LeaderboardDisabled)
+            {
+                DelegateInstance = Dummy;
+                ClassInjector.Detour.Detour(System.IntPtr.Add(GetModuleHandle("GameAssembly.dll"), 0xa9d990),
+                                    DelegateInstance);
+                LeaderboardDisabled = true;
+                Log.LogInfo($"Leaderboards disabled!");
+            }
         }
 
         public override void Load()
