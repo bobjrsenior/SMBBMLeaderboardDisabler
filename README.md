@@ -10,8 +10,8 @@ Note: Based on what MorsGames did for [BananaModManager](https://github.com/Mors
 
 This plugin uses [BepInEx](https://github.com/BepInEx/BepInEx) as a mod loader so that needs to be installed first.
 
-1. Download a bleeding edge build of "BepInEx Unity IL2CPP for Windows x64 games" [here](https://builds.bepinex.dev/projects/bepinex_be) (Only the bleeding edge builds support Il2CPP games which is what Banana Mania is
-2. Extract it in your game folder)
+1. Download a bleeding edge build of "BepInEx Unity IL2CPP for Windows x64 games" [here](https://builds.bepinex.dev/projects/bepinex_be) (Only the bleeding edge builds support Il2CPP games which is what Banana Mania is)
+2. Extract it in your game folder
 
 ### Installing This Plugin
 
